@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Platform
+  - yellowscream
+  - bluescream
+  - enemyyellow
+  - enemyblue
+  - platformtop
   layers:
   - Default
   - TransparentFX
@@ -16,7 +21,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Platform
   - 
   - 
   - 

@@ -12,11 +12,11 @@ public class DestroyBomb : MonoBehaviour
         if(isMovingLeft == true)
         {
             Debug.Log("attack");
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10f,-30f), Random.Range(10f, 40f)));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(10f,30f), Random.Range(10f, 40f)));
         }
         else
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(10f, 30f), Random.Range(10f, 40f)));
+            gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-10f, -30f), Random.Range(10f, 40f)));
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

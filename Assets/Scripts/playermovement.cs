@@ -32,7 +32,7 @@ public class playermovement : MonoBehaviour
         //GetInput();
        
         Debug.Log(currentState);
-        grounded = Physics2D.Linecast(transform.position, groundcheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        grounded = Physics2D.Linecast(transform.position, groundcheck.position, 1 << LayerMask.NameToLayer("Platform"));
         if (grounded == true)
         { currentState = PlayerState.walk; }
         checkwalkstate();
@@ -74,12 +74,12 @@ public class playermovement : MonoBehaviour
 
     }
    
-        void OnCollisionEnter2D(Collision2D collision)
+       /* void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "platformtop")
             {
                 currentState = PlayerState.walk;
             }
-        }
+        }*/
     
 }

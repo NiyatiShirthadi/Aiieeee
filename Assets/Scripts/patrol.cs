@@ -71,7 +71,7 @@ public class patrol : MonoBehaviour
 
             if(fieldOfVision < 65)
             { */
-                RaycastHit2D playerDetection = Physics2D.Raycast(playerDetector.position, Vector2.down, playerRayDistance, PlayerLayer);
+                RaycastHit2D playerDetection = Physics2D.Raycast(playerDetector.position, Vector2.down, playerRayDistance/*, PlayerLayer*/);
 
                 if (playerDetection.collider.tag == "Player")
                 {

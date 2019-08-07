@@ -208,8 +208,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.2
   currentState: 0
+  check: 0
   jforce: 500
   rb: {fileID: 7115682669216252867}
+  groundcheck: {fileID: 2109174158509525720}
 --- !u!114 &2058969308261415391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7290470352358131630}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3598924061549748822}
@@ -271,7 +273,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7290470352358131630}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -303,3 +305,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   st: 0
+  jint: 0
