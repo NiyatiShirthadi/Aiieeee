@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af7181f404f1447c0a7a17b3070b952b, type: 3}
+  m_Name: KitchenTiles
+  m_EditorClassIdentifier: 
+  m_Angles:
+  - m_Start: -45
+    m_End: 45
+    m_Order: 4
+    m_Sprites:
+    - {fileID: 21300000, guid: 072bdeb8118a9fb46b82f4354c86e4e0, type: 3}
+  - m_Start: -135
+    m_End: -45
+    m_Order: 3
+    m_Sprites:
+    - {fileID: 21300000, guid: 072bdeb8118a9fb46b82f4354c86e4e0, type: 3}
+  - m_Start: 135
+    m_End: 225
+    m_Order: 2
+    m_Sprites:
+    - {fileID: 21300000, guid: 072bdeb8118a9fb46b82f4354c86e4e0, type: 3}
+    - {fileID: 21300000, guid: 072bdeb8118a9fb46b82f4354c86e4e0, type: 3}
+  - m_Start: 45
+    m_End: 135
+    m_Order: 1
+    m_Sprites:
+    - {fileID: 21300000, guid: 072bdeb8118a9fb46b82f4354c86e4e0, type: 3}
+  m_FillTexture: {fileID: 2800000, guid: 2c3b97e51cb9fb44d846ddd21858d4bb, type: 3}
+  m_CornerSprites:
+  - m_CornerType: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: 196676350d09c2d47b718421443554fc, type: 3}
+  - m_CornerType: 1
+    m_Sprites:
+    - {fileID: 21300000, guid: 114e2bbd06460934d97ce32af8b6626e, type: 3}
+  - m_CornerType: 2
+    m_Sprites:
+    - {fileID: 21300000, guid: cada1f7d174a78b41abaa55435f2540d, type: 3}
+  - m_CornerType: 3
+    m_Sprites:
+    - {fileID: 21300000, guid: ac439f7cf0c05e4479ace750973bb0af, type: 3}
+  - m_CornerType: 4
+    m_Sprites:
+    - {fileID: 21300000, guid: eb1779a94dab654438949c40515e2f88, type: 3}
+  - m_CornerType: 5
+    m_Sprites:
+    - {fileID: 21300000, guid: 860e0c9bd3fa453468591ca438cab0cd, type: 3}
+  - m_CornerType: 6
+    m_Sprites:
+    - {fileID: 21300000, guid: c1d3bc23592d60f48a870472c8dd8c82, type: 3}
+  - m_CornerType: 7
+    m_Sprites:
+    - {fileID: 21300000, guid: b1d941f35280ae241b2a697a4e870240, type: 3}
+  m_FillOffset: 0
+  m_UseSpriteBorders: 1
