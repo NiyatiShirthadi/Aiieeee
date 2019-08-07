@@ -57,7 +57,7 @@ public class patrol : MonoBehaviour
         GameObject Bombinstance = Instantiate(Bomb, bombSpawner.transform.position,Quaternion.identity);
         /*Bombinstance.GetComponent<Rigidbody2D>().AddForce(playerDetector.forward * BombSpeed, ForceMode2D.Force);
        */ attacked = true;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         attacked = false;
     }
 
