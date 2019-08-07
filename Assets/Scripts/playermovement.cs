@@ -17,13 +17,14 @@ public class playermovement : MonoBehaviour
     public Rigidbody2D rb;
     bool grounded = false;
     public Transform groundcheck;
+    public Animator animator;
    // private Vector3 change;
     // Start is called before the first frame update
     void Start()
     {
         currentState = PlayerState.walk;
         rb = GetComponent<Rigidbody2D>();
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,11 +54,40 @@ public class playermovement : MonoBehaviour
         {
             float move = Input.GetAxis("Horizontal")*speed;
             transform.Translate(move,0,0);
+            
+            if (move != 0)
+            {
+                animator.SetTrigger("isWalking");
+                animator.ResetTrigger("isIdle");
+            }
+            else {
+                animator.SetTrigger("isIdle");
+                animator.ResetTrigger("isWalking");
+            }
+
+            if (move > 0)
+            {
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+            else if (move < 0) {
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+
+            
         }
         if (currentState != PlayerState.hitstun && currentState == PlayerState.jump)
         {
             float move = Input.GetAxis("Horizontal") * speed/2;
             transform.Translate(move, 0, 0);
+            //animator.SetTrigger("isWalking");
+            if (move != 0)
+            {
+                animator.SetTrigger("isWalking");
+                animator.ResetTrigger("isIdle");
+            }
+            else { animator.SetTrigger("isIdle");
+                animator.ResetTrigger("isWalking");
+            }
 
         }
         if (currentState != PlayerState.jump && grounded==true)
