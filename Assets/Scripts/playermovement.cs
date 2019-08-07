@@ -12,8 +12,11 @@ public class playermovement : MonoBehaviour
 {
     public float speed;
     public PlayerState currentState;
+    public PlayerState check;
     public float jforce;
     public Rigidbody2D rb;
+    bool grounded = false;
+    public Transform groundcheck;
    // private Vector3 change;
     // Start is called before the first frame update
     void Start()
@@ -27,9 +30,15 @@ public class playermovement : MonoBehaviour
     void Update()
     {
         //GetInput();
-        checkwalkstate();
        
         Debug.Log(currentState);
+        grounded = Physics2D.Linecast(transform.position, groundcheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        if (grounded == true)
+        { currentState = PlayerState.walk; }
+        checkwalkstate();
+       
+       
+        
         
     }
     void GetInput()
@@ -40,18 +49,26 @@ public class playermovement : MonoBehaviour
     }
     void checkwalkstate()
     {
-        if (currentState != PlayerState.hitstun)
+        if (currentState != PlayerState.hitstun && currentState!=PlayerState.jump)
         {
             float move = Input.GetAxis("Horizontal")*speed;
             transform.Translate(move,0,0);
         }
-        if (currentState != PlayerState.jump)
+        if (currentState != PlayerState.hitstun && currentState == PlayerState.jump)
+        {
+            float move = Input.GetAxis("Horizontal") * speed/2;
+            transform.Translate(move, 0, 0);
+
+        }
+        if (currentState != PlayerState.jump && grounded==true)
         {
             if (Input.GetButton("Jump"))
             {
                 
                 rb.AddForce(transform.up * jforce);
                 currentState = PlayerState.jump;
+                grounded = false;
+                //currentState = GameObject.Find("jumpreset").GetComponent<jumpresetscript>().st;
             }
         }
 
