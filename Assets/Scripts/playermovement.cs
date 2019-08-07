@@ -35,7 +35,9 @@ public class playermovement : MonoBehaviour
         Debug.Log(currentState);
         grounded = Physics2D.Linecast(transform.position, groundcheck.position, 1 << LayerMask.NameToLayer("Platform"));
         if (grounded == true)
-        { currentState = PlayerState.walk; }
+        { currentState = PlayerState.walk;
+            animator.ResetTrigger("isJumping");
+        }
         checkwalkstate();
        
        
@@ -82,11 +84,11 @@ public class playermovement : MonoBehaviour
             //animator.SetTrigger("isWalking");
             if (move != 0)
             {
-                animator.SetTrigger("isWalking");
-                animator.ResetTrigger("isIdle");
+                //animator.SetTrigger("isWalking");
+                //animator.ResetTrigger("isIdle");
             }
-            else { animator.SetTrigger("isIdle");
-                animator.ResetTrigger("isWalking");
+            else {// animator.SetTrigger("isIdle");
+                //animator.ResetTrigger("isWalking");
             }
 
         }
@@ -97,6 +99,9 @@ public class playermovement : MonoBehaviour
                 
                 rb.AddForce(transform.up * jforce);
                 currentState = PlayerState.jump;
+                animator.SetTrigger("isJumping");
+                animator.ResetTrigger("isWalking");
+                animator.ResetTrigger("isIdle");
                 grounded = false;
                 //currentState = GameObject.Find("jumpreset").GetComponent<jumpresetscript>().st;
             }

@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class shieldbarscript : MonoBehaviour
 {
     public Slider shieldbar;
-    public static int currentshield;
-    public int maxshields;
+    public static float currentshield;
+    public float maxshields;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +18,8 @@ public class shieldbarscript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currentshield = Playerhealth.cshields;
+
+        currentshield = GameState.shieldHealth;
         shieldbar.maxValue = maxshields;
         shieldbar.value = currentshield;
         

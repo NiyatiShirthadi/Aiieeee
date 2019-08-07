@@ -80,6 +80,10 @@ public class spookyghostbehavior : MonoBehaviour
 
 
         }
+        if (collision.gameObject.tag == "Player")
+        {
+            GameState.doDamage(10f);
+        }
     }
     public IEnumerator respawner()
     {

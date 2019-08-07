@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class GameState 
 {
-    public static float playerHealth;
+    public static float playerHealth = 100f;
     public float maxHealth;
-    public static float shieldHealth;
+    public static float shieldHealth = 100f;
     // Start is called before the first frame update
     void Start()
     {
-        maxHealth = 100;
-        playerHealth = maxHealth;
+        maxHealth = 100f;
+        playerHealth = 100f;
         
     }
 
 
-    void doDamage(float damage) {
+    public static void doDamage(float damage) {
 
         if (shieldHealth > 0)
         {
@@ -31,6 +31,19 @@ public class GameState
     // Update is called once per frame
     void Update()
     {
-        
+        if (playerHealth <= 0f)
+        { playerHealth = 0f; }
+        if (playerHealth >= 100f)
+        {
+            playerHealth = 100f;
+        }
+        if (shieldHealth <= 0f)
+        {
+            shieldHealth = 0f;
+        }
+        if (shieldHealth >= 100f)
+        {
+            shieldHealth = 100f;
+        }
     }
 }
