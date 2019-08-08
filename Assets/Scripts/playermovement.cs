@@ -101,8 +101,8 @@ public class playermovement : MonoBehaviour
         {
             if (Input.GetButton("Jump"))
             {
-                
-                rb.AddForce(transform.up * jforce);
+                rb.velocity = new Vector2(0,0) ;
+                rb.AddForce(transform.up * jforce, ForceMode2D.Impulse);
                 currentState = PlayerState.jump;
                 animator.SetTrigger("isJumping");
                 animator.ResetTrigger("isWalking");
