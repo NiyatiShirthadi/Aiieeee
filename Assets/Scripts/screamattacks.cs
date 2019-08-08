@@ -15,6 +15,7 @@ public class screamattacks : MonoBehaviour
     public GameObject yellowscream;
     public GameObject yellowscream1;
     public Transform spawn;
+
     float timer1;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,7 @@ public class screamattacks : MonoBehaviour
     void Update()
     {
         GetAttack();
-        Debug.Log("Attackstate is " + current);
+        //Debug.Log("Attackstate is " + current);
         
        
     }

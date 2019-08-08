@@ -31,6 +31,14 @@ public class bluescreamscript : MonoBehaviour
             Playerhealth.cshields += 10;
 
         }
+
+        if (collision.gameObject.tag == "falseboss")
+        {
+            Debug.Log("!!!!!!!!!!!!Bosss");
+            EnemyScript enemy = new EnemyScript();
+            enemy.doDamage(2);
+
+        }
     }
 
 }

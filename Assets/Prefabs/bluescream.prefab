@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9138007262258610276}
   - component: {fileID: 5328786893454127517}
   - component: {fileID: 2799492045096846424}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: bluescream
   m_TagString: bluescream
   m_Icon: {fileID: 0}
@@ -59,6 +59,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -68,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1086819187
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c3e81559ad02e5144b65766ef87fb62e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -10,31 +10,67 @@ public class EnemyScript : MonoBehaviour
     public float stoppingDistance;
     public float retreatDistance;
     public Transform[] moveSpots;
-    Animator m_Animator;
+    static Animator animator;
     public GameObject projectile;
-
+    public bool enter;
     public Transform player;
+
+    public static float health;
+
     void Start()
     {
+        health = 100;
         
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        m_Animator = gameObject.GetComponent<Animator>();
-        m_Animator.SetTrigger("isPatrol");
-        Physics2D.IgnoreCollision(GameObject.FindGameObjectWithTag("platform").GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        m_Animator.SetTrigger("isShooting");
-       // m_Animator.SetTrigger("isMelee");
-        m_Animator.ResetTrigger("isPatrol");
+        animator = GetComponent<Animator>();
+        //m_Animator.SetTrigger("isPatrol");
+        Physics2D.IgnoreCollision(GameObject.FindGameObjectWithTag("Platform").GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        
+        // m_Animator.SetTrigger("isMelee");
+        //animator.ResetTrigger("isPatrol");
+     
     }
 
     // Update is called once per frame
     void Update()
     {
-       // if (Vector2.Distance(transform.position, player.position) > stoppingDistance) {
-         //   transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        //animator.SetTrigger("isShooting");
+
+
+        // if (Vector2.Distance(transform.position, player.position) > stoppingDistance) {
+        //   transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         //} else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance) {
-         //   transform.position = this.transform.position;
+        //   transform.position = this.transform.position;
         //} else if (Vector2.Distance(transform.position, player.position) < retreatDistance) {
-          //  transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+        //  transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         //}
+
     }
+
+    public static void doMelee() {
+        animator.SetTrigger("isShooting");
+    }
+
+    void doShooting()
+    {
+
+    }
+
+    void doSpawning()
+    {
+
+    }
+
+    public void doDamage(float damage) {
+
+        if (health == 0)
+        {
+            Destroy(gameObject);
+        }
+        else {
+            health -= damage;
+            Debug.Log(health);
+        }
+    
+    } 
 }

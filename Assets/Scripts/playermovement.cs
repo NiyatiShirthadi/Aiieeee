@@ -18,10 +18,13 @@ public class playermovement : MonoBehaviour
     bool grounded = false;
     public Transform groundcheck;
     public Animator animator;
+    public Transform spawn;
+    public bool facingRight;
    // private Vector3 change;
     // Start is called before the first frame update
     void Start()
     {
+        facingRight = true;
         currentState = PlayerState.walk;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -32,7 +35,7 @@ public class playermovement : MonoBehaviour
     {
         //GetInput();
        
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
         grounded = Physics2D.Linecast(transform.position, groundcheck.position, 1 << LayerMask.NameToLayer("Platform"));
         if (grounded == true)
         { currentState = PlayerState.walk;
@@ -55,6 +58,7 @@ public class playermovement : MonoBehaviour
         if (currentState != PlayerState.hitstun && currentState!=PlayerState.jump)
         {
             float move = Input.GetAxis("Horizontal")*speed;
+            float h = Input.GetAxis("Horizontal");
             transform.Translate(move,0,0);
             
             if (move != 0)
@@ -67,15 +71,16 @@ public class playermovement : MonoBehaviour
                 animator.ResetTrigger("isWalking");
             }
 
-            if (move > 0)
+            if (h > 0 && !facingRight)
             {
-                GetComponent<SpriteRenderer>().flipX = false;
+                Flip();
             }
-            else if (move < 0) {
-                GetComponent<SpriteRenderer>().flipX = true;
+            else if (h < 0 && facingRight)
+            {
+                Flip();
             }
 
-            
+
         }
         if (currentState != PlayerState.hitstun && currentState == PlayerState.jump)
         {
@@ -108,7 +113,16 @@ public class playermovement : MonoBehaviour
         }
 
     }
-   
+
+    public void Flip()
+    {
+        facingRight = !facingRight;
+        Vector2 scale = transform.localScale;
+        scale.x *= -1;
+        gameObject.transform.localScale = scale;
+
+    }
+
        /* void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.tag == "platformtop")
@@ -116,5 +130,5 @@ public class playermovement : MonoBehaviour
                 currentState = PlayerState.walk;
             }
         }*/
-    
+
 }

@@ -30,6 +30,7 @@ public class ProjectileScript : MonoBehaviour
         if (col.CompareTag("Player"))
         {
             Destroy(gameObject);
+            GameState.doDamage(10);
         }
     }
 

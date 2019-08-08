@@ -18,7 +18,7 @@ public class HealthScript : MonoBehaviour
     void Update()
     {
         currenthealth = GameState.playerHealth;
-        Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!"+currenthealth);
+        //Debug.Log("!!!!!!!!!!!!!!!!!!!!!!!!!!"+currenthealth);
         healthbar.maxValue = maxhealth;
         healthbar.value = currenthealth;
         
