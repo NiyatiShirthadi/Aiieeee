@@ -70,6 +70,7 @@ public class EnemyScript : MonoBehaviour
         else {
             health -= damage;
             Debug.Log(health);
+
         }
     
     } 
