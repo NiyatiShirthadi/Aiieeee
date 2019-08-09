@@ -19,12 +19,13 @@ public class patrol : MonoBehaviour
     bool attacked = false;
     public GameObject Bomb;
     public int BombSpeed;
+    //private Transform EnemyTransform;
 
     private int PlayerLayer = 1 << 8;
 
     private void Start()
     {
-          
+        //EnemyTransform = gameObject.GetComponent<Transform>();
     }
 
     IEnumerator StartPatrol()
@@ -32,7 +33,7 @@ public class patrol : MonoBehaviour
         
 
         RaycastHit2D groundDetection = Physics2D.Raycast(groundDetector.position, Vector2.down, platformRayDistance);
-
+        
         transform.Translate(Vector2.left * PatrolSpeed * Time.deltaTime);
             if (groundDetection.collider == false)
             {
@@ -52,15 +53,25 @@ public class patrol : MonoBehaviour
 
     }
 
+    
+
     IEnumerator attackPlayer()
     {
         GameObject Bombinstance = Instantiate(Bomb, bombSpawner.transform.position,Quaternion.identity);
-        /*Bombinstance.GetComponent<Rigidbody2D>().AddForce(playerDetector.forward * BombSpeed, ForceMode2D.Force);
-       */ attacked = true;
+        attacked = true;
         yield return new WaitForSeconds(1f);
         attacked = false;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "yellowscream" || collision.gameObject.tag == "bluescream")
+        {
+            //Debug.Log("Juju is a stupid");
+            Destroy(gameObject);
+        }
+    }
 
     private void playerdetection()
     {
