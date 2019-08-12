@@ -12,6 +12,10 @@ TagManager:
   - enemyblue
   - platformtop
   - falseboss
+  - enemyblueprojectile
+  - enemyyellowprojectile
+  - Right
+  - Left
   layers:
   - Default
   - TransparentFX
@@ -25,8 +29,8 @@ TagManager:
   - Platform
   - bluescream
   - yellowscream
-  - 
-  - 
+  - powerup
+  - enemyscream
   - 
   - 
   - 

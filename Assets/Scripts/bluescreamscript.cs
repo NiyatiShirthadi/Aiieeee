@@ -28,17 +28,13 @@ public class bluescreamscript : MonoBehaviour
     {
         if (collision.gameObject.tag == "enemyblue")
         {
-            Playerhealth.cshields += 10;
+            Debug.Log("Hitttt!!!!!!!!!!!!");
+            GameState.shieldHealth += 10;
+            Destroy(collision.gameObject);
 
         }
 
-        if (collision.gameObject.tag == "falseboss")
-        {
-            Debug.Log("!!!!!!!!!!!!Bosss");
-            EnemyScript enemy = new EnemyScript();
-            enemy.doDamage(2);
-
-        }
+       
     }
 
 }

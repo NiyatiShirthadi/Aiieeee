@@ -22,4 +22,17 @@ public class yellowscreamscript : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemyyellow")
+        {
+            Debug.Log("Hitttt!!!!!!!!!!!!");
+            GameState.shieldHealth += 10;
+            Destroy(collision.gameObject);
+
+        }
+
+
+    }
 }

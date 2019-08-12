@@ -37,7 +37,7 @@ public class spookyghostbehavior : MonoBehaviour
         //playerpos = GameObject.Find("Player").transform;
         if (hasdetected == true)
         {
-            Debug.Log("detection");
+         //   Debug.Log("detection");
             Vector3 direction = playerpos.position - transform.position;
             direction.Normalize();
             movement = direction;

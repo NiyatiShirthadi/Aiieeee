@@ -11,7 +11,8 @@ public class EnemyScript : MonoBehaviour
     public float retreatDistance;
     public Transform[] moveSpots;
     static Animator animator;
-    public GameObject projectile;
+    public GameObject projectile1;
+    public GameObject projectile2;
     public bool enter;
     public Transform player;
 
@@ -24,7 +25,7 @@ public class EnemyScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         //m_Animator.SetTrigger("isPatrol");
-        Physics2D.IgnoreCollision(GameObject.FindGameObjectWithTag("Platform").GetComponent<Collider2D>(), GetComponent<Collider2D>());
+       // Physics2D.IgnoreCollision(GameObject.FindGameObjectWithTag("Platform").GetComponent<Collider2D>(), GetComponent<Collider2D>());
         
         // m_Animator.SetTrigger("isMelee");
         //animator.ResetTrigger("isPatrol");
@@ -45,6 +46,10 @@ public class EnemyScript : MonoBehaviour
         //  transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         //}
 
+        if (GameState.playerHealth <= 0) {
+            doRoam();
+        }
+
     }
 
     public static void doMelee() {
@@ -54,6 +59,15 @@ public class EnemyScript : MonoBehaviour
     void doShooting()
     {
 
+    }
+
+    public void Death() {
+        Destroy(gameObject);
+    }
+
+    public static void doRoam()
+    {
+        animator.SetTrigger("isPatrol");
     }
 
     void doSpawning()
@@ -66,12 +80,35 @@ public class EnemyScript : MonoBehaviour
         if (health == 0)
         {
             Destroy(gameObject);
+
         }
         else {
             health -= damage;
             Debug.Log(health);
 
         }
-    
-    } 
+
+
+        GetComponent<SpriteRenderer>().color = Color.red;
+        StartCoroutine(whitecolor());
+
+    }
+
+     IEnumerator whitecolor()
+    {
+        yield return new WaitForSeconds(0.2f);
+        GetComponent<SpriteRenderer>().color = Color.white;
+       
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "bluescream")
+        {
+            Debug.Log("!!!!!!!!!!!!Bosss");
+            
+            doDamage(1);
+
+        }
+    }
 }

@@ -30,35 +30,22 @@ public class cameraSwitch : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (cameraOneActive)
-        {
-            Debug.Log("collision");
-            cameraTwo.SetActive(true);
-            cameraTwoAudioLis.enabled = true;
+        if (col.gameObject.CompareTag("Player")) {
+           
+                Debug.Log("collision");
+                cameraTwo.SetActive(true);
+                cameraTwoAudioLis.enabled = true;
 
-            cameraOneAudioLis.enabled = false;
-            cameraOne.SetActive(false);
+                cameraOneAudioLis.enabled = false;
+                cameraOne.SetActive(false);
 
-            cameraTwoActive = true;
-            cameraOneActive = false;
-        }
-        else {
-            Debug.Log("collision2");
-            cameraOne.SetActive(true);
-            cameraOneAudioLis.enabled = true;
-
-            cameraTwoAudioLis.enabled = false;
-            cameraTwo.SetActive(false);
-
-            cameraOneActive = true;
-            cameraTwoActive = false;
-
-        }
-
-        if (cameraTwoActive)
-        {
+                cameraTwoActive = true;
+                cameraOneActive = false;
+           
            
         }
         
+
+     
     }
 }

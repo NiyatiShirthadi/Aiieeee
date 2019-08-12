@@ -14,11 +14,24 @@ public class ShootBehavior : StateMachineBehaviour
 
     public GameObject projectile;
 
+    public GameObject bluebullet;
+    public GameObject bluebullet1;
+    public GameObject ylwbullet;
+    public GameObject ylwbullet1;
+    public float timer1;
+    public float timer2;
+    public int bulcount;
+    public Transform spawn;
+    private float flip;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         timeBtwShots = startTimeBtShots;
-        projectile = animator.gameObject.GetComponent<EnemyScript>().projectile;
+       // projectile = animator.gameObject.GetComponent<EnemyScript>().projectile;
+        bluebullet1 = animator.gameObject.GetComponent<EnemyScript>().projectile1;
+        ylwbullet1 = animator.gameObject.GetComponent<EnemyScript>().projectile2;
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
@@ -27,7 +40,7 @@ public class ShootBehavior : StateMachineBehaviour
     {
         if (timeBtwShots <= 0)
         {
-            Instantiate(projectile, animator.transform.position, Quaternion.identity);
+            //Instantiate(projectile, animator.transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtShots;
         }
         else {
@@ -35,7 +48,40 @@ public class ShootBehavior : StateMachineBehaviour
         }
 
         Roam(animator);
-       
+
+
+
+        timer1 += Time.fixedDeltaTime;
+        if (timer1 >= 2f && bulcount < 2)
+        {
+            Debug.Log(flip);
+            flip = Random.Range(0, 2);
+            if (flip >= 0.5f)
+            {
+                GameObject bluebullet = (GameObject)Instantiate(bluebullet1, animator.transform.position, Quaternion.identity);
+                //bluebullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * -10;
+                timer1 = 0;
+                bulcount++;
+            }
+            else if (flip <= 0.5f)
+            {
+                GameObject ylwbullet = (GameObject)Instantiate(ylwbullet1, animator.transform.position, Quaternion.identity);
+                //ylwbullet.GetComponent<Rigidbody2D>().velocity = Vector2.right * -10;
+                timer1 = 0;
+                bulcount++;
+            }
+        }
+        if (bulcount == 2)
+        {
+            timer2 += Time.fixedDeltaTime;
+            if (timer2 >= 0.5f)
+            {
+                bulcount = 0;
+                timer2 = 0;
+            }
+        }
+
+
     }
 
     void Roam(Animator animator) {

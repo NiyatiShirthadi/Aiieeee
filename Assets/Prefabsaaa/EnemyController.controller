@@ -193,6 +193,14 @@ MonoBehaviour:
   speed: 0
   player: {fileID: 0}
   projectile: {fileID: 0}
+  bluebullet: {fileID: 0}
+  bluebullet1: {fileID: 0}
+  ylwbullet: {fileID: 0}
+  ylwbullet1: {fileID: 0}
+  timer1: 0
+  timer2: 0
+  bulcount: 0
+  spawn: {fileID: 0}
 --- !u!1101 &-3128567399221261790
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -450,10 +458,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTimeBtShots: 2
   stoppingDistance: 3
-  retreatDistance: 5
-  speed: 10
+  retreatDistance: 10
+  speed: 5
   player: {fileID: 0}
   projectile: {fileID: 0}
+  bluebullet: {fileID: 0}
+  bluebullet1: {fileID: 0}
+  ylwbullet: {fileID: 0}
+  ylwbullet1: {fileID: 0}
+  timer1: 0
+  timer2: 0
+  bulcount: 0
+  spawn: {fileID: 0}
 --- !u!1101 &2848865788393382486
 AnimatorStateTransition:
   m_ObjectHideFlags: 1

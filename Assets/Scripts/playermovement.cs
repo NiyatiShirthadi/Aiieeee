@@ -20,7 +20,8 @@ public class playermovement : MonoBehaviour
     public Animator animator;
     public Transform spawn;
     public bool facingRight;
-   // private Vector3 change;
+    [SerializeField] public GameObject teleportTo;
+    // private Vector3 change;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,9 @@ public class playermovement : MonoBehaviour
         currentState = PlayerState.walk;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        //teleportTo = GameObject.Find("SavePosition");
+       // gameObject.transform.position = teleportTo.transform.position;
+
     }
 
     // Update is called once per frame
@@ -111,6 +115,15 @@ public class playermovement : MonoBehaviour
                 //currentState = GameObject.Find("jumpreset").GetComponent<jumpresetscript>().st;
             }
         }
+
+    }
+
+    public void Death()
+    {
+        GameState.playerHealth= 100f;
+        Debug.Log("!!!!!!!!!!!!" +teleportTo);
+       transform.position = teleportTo.transform.position;
+
 
     }
 

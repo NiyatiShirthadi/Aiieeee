@@ -40,7 +40,7 @@ public class screamattacks : MonoBehaviour
         {
             StartCoroutine(attackblu());
         }
-        if (Input.GetButton("Fire2") && current == attackstate.idle)
+        if (Input.GetButton("Fire2") && current == attackstate.idle && GameState.hasYPower==true)
 
         {
             StartCoroutine(attackylw());
