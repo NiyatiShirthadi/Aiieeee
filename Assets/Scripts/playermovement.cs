@@ -117,7 +117,7 @@ public class playermovement : MonoBehaviour
         }
 
     }
-
+    
     public void Death()
     {
         GameState.playerHealth= 100f;

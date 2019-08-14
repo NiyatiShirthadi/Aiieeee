@@ -15,6 +15,9 @@ public class SpikeScript : MonoBehaviour
     {
         
     }
+     
+    
+
     void OnCollisionEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
